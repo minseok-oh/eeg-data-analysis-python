@@ -1,6 +1,9 @@
-import os
+import sys, os
 from os import listdir
 import pandas as pd
+
+sys.path.append(os.path.abspath('../'))
+import utils
 
 # 제거를 원하는 column을 적으세요
 UNWANTED_COLS = [] 
@@ -18,7 +21,7 @@ def merge_csv_file(csv_list):
     
 if __name__ == '__main__':
     # 원하는 data의 경로와 형식을 적으세요
-    subject_filenames = find_csv_filenames("<dataset>", "<suffix>") 
+    subject_filenames = utils.find_csv_filenames("<dataset>", "<suffix>") 
 
     for name in subject_filenames:
         df = pd.read_csv(name)

@@ -18,6 +18,7 @@ if __name__ == '__main__':
     for name in subject_filenames:
         df = utils.load_data(name)
 
+        # 축과 공백이 없는 사진을 만들기 위해서 sybplots_adjust와 axis를 사용하였습니다
         fig = plt.figure(figsize=(12, 10))
         fig.subplots_adjust(hspace=0, wspace=0)
 
@@ -25,4 +26,5 @@ if __name__ == '__main__':
             ax = fig.add_subplot(6, 3, i+1)
             ax.specgram(df.iloc[:, i], NFFT='<input nfft>', Fs='<input fs>', noverlap=int('<input nfft>' / '<input overlap>'))
             ax.axis('off')
+        # 마지막으로 <name>.png의 형태로 파일이 저장됩니다
         plt.savefig(f'<{name}>.png')

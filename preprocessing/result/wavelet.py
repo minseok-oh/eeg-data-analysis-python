@@ -34,6 +34,7 @@ if __name__ == '__main__':
     for name in subject_filenames:
         df = pd.read_csv(name)
 
+        # 여러 Series인 데이터를 하나의 DataFrame으로 만들어 줍니다
         merged_df = {}
         for i in range(df.shape[1]):
             here = pd.Series(cwt(df.iloc[:, i].to_numpy(), 10))

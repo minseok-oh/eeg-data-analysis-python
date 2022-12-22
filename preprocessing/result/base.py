@@ -6,12 +6,9 @@ sys.path.append(os.path.abspath('../'))
 import utils
 
 # 제거를 원하는 column을 적으세요
-UNWANTED_COLS = [] 
+UNWANTED_COLS = []
 
-def find_csv_filenames(path_to_dir, suffix=".csv"):
-    filenames = listdir(path_to_dir)
-    return [os.path.join(path_to_dir, filename) for filename in filenames if filename.endswith(suffix)]
-
+# csv 파일을 합쳐주는 함수입니다
 def merge_csv_file(csv_list):
     merged_df = pd.DataFrame()
     for subject_name in csv_list:
